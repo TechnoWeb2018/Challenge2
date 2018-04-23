@@ -2,21 +2,16 @@
 
 <rdf:RDF
 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-xmlns:si="http://purl.org/dc/elements/1.1#"
-xmlns:st="http://region.fake#">
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:region="http://region.fake/"
+xmlns:wiki="http://en.wikipedia.org/wiki/">
 
-<rdf:Description rdf:about="http://purl.org/dc/elements/1.1">
-  <si:title>Oxford</si:title>
-  <si:coverage>Oxfordshire</si:coverage>
-  <si:publisher>Wikipedia</si:publisher>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://region.fake/town">
-  <st:town rdf:resource="http://region.fake/oxford"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://region.fake/population">
-  <st:population>10000</st:population>
+<rdf:Description rdf:about="wiki:Oxford">
+  <dc:title>Oxford</dc:title>
+  <dc:coverage>Oxfordshire</dc:coverage>
+  <dc:publisher>Wikipedia</dc:publisher>
+  <region:town rdf:resource="region:oxford"/>
+  <region:population>10000</region:population>
 </rdf:Description>
 
 </rdf:RDF>
