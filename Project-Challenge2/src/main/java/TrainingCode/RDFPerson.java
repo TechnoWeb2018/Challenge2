@@ -1,5 +1,9 @@
 package TrainingCode;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -14,7 +18,20 @@ public class RDFPerson {
 	
 	private Model model;
 	
-	public void writeModel() {
+	public void writeModel() throws FileNotFoundException {
+		
+		/**
+		 * Permet d'afficher le résultat dans un fichier
+		 * (Utile pour le Challenge, on ne se jamais)Lol
+		 * 
+		 * */
+		File file_rdf = new File("../OutPut1-rdf.rdf");
+		File file_turtle = new File("../OutPut1-turtle.rdf");
+		model.write(new PrintWriter(file_rdf),"RDF/XML");
+		model.write(new PrintWriter(file_turtle),"TURTLE");
+		
+		/**
+		 * Affiche le résultat dans la console*/
 		model.write(System.out,"RDF/XML");
 		model.write(System.out, "TURTLE");
 	}
@@ -72,7 +89,12 @@ public class RDFPerson {
 	public static void main(String[] args) {
 		RDFPerson person = new RDFPerson();
 		person.createModel();
-		person.writeModel();
+		try {
+			person.writeModel();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

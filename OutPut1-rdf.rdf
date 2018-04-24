@@ -1,0 +1,36 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:per="http://www.example.org#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <rdf:Description rdf:about="http://www.example.org#Graduate">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.example.org#Student">
+        <rdfs:subClassOf rdf:resource="http://www.example.org#Person"/>
+      </rdf:Description>
+    </rdfs:subClassOf>
+  </rdf:Description>
+  <per:Undergraduate>
+    <foaf:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >36</foaf:age>
+    <foaf:name>Alice</foaf:name>
+  </per:Undergraduate>
+  <per:Professor>
+    <foaf:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >50</foaf:age>
+    <foaf:name>Bob</foaf:name>
+  </per:Professor>
+  <rdf:Description rdf:about="http://www.example.org#Assistant">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.example.org#Staff">
+        <rdfs:subClassOf rdf:resource="http://www.example.org#Person"/>
+      </rdf:Description>
+    </rdfs:subClassOf>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.org#Undergraduate">
+    <rdfs:subClassOf rdf:resource="http://www.example.org#Student"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.org#Professor">
+    <rdfs:subClassOf rdf:resource="http://www.example.org#Staff"/>
+  </rdf:Description>
+</rdf:RDF>
