@@ -1,1 +1,0 @@
-PREFIX mov:<http://rdf.freebase.com/ns/>SELECT ?who ?filmWHERE {?film mov:film.film.directed_by ?who .?film mov:film.film.starring ?who .}

@@ -1,1 +1,0 @@
-PREFIX mov:<http://rdf.freebase.com/ns/>SELECT ?film ?reldateWHERE {?film mov:film.film.directed_by mov:en.ron_shelton . OPTIONAL {?film mov:film.film.initial_release_date ?reldate.}}
