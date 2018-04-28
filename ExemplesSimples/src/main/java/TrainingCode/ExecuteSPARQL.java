@@ -68,7 +68,7 @@ public class ExecuteSPARQL {
 	}	*/
 	public static void main(String[] args) throws IOException {	
 		//sparqlTest();
-		String literal [] = {"Given"};
-		ExecuteSPARQL(inputFileName,Requetes.queryString_3,literal);
+		String literal [] = {"FN", "age"};
+		ExecuteSPARQL(inputFileName,Requetes.queryString_2,literal);
 	}
 }
