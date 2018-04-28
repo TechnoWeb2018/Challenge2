@@ -24,8 +24,27 @@ public class ExecuteSPARQL {
 	 * Si vous changer les requetes, il faut adapter le code pour l'affichage
 	 * 
 	 * */
-	static final String inputFileName = "../vc-db-1.rdf ";
+	static final String inputFileName = "../vc-db-2.rdf ";
 
+	static void ExecuteSPARQL(String inputRDFName, String requete, String literal[]) {
+		
+        Model model1 = ReadRDFsecond.ReadModelFromFile(inputRDFName);
+        Query query = QueryFactory.create(requete);
+	
+        QueryExecution qexec = QueryExecutionFactory.create(query,model1);
+        try {
+        	ResultSet results = qexec.execSelect();
+        		while (results.hasNext()) {
+        			QuerySolution person = results.nextSolution();
+        			for(int i = 0 ; i<literal.length;i++) System.out.print(person.getLiteral(literal[i])+" ");
+        			System.out.println();
+			}			
+		}
+        finally {
+        	qexec.close();
+		}			
+	}
+	/*
 	static void sparqlTest() throws IOException {
 
         Model model1 = ReadRDFsecond.ReadModelFromFile(inputFileName);
@@ -37,15 +56,19 @@ public class ExecuteSPARQL {
 		ResultSet results = qexec.execSelect();
 		while (results.hasNext()) {
 			QuerySolution person = results.nextSolution();
-			Literal name = person.getLiteral("Given");			
-			System.out.println(name );
+			Literal name = person.getLiteral("Given");	
+			Literal familyName = person.getLiteral("Family");
+			Literal age = person.getLiteral("age");
+			System.out.println(name + " " + familyName + " "+age );
 			}			
 		}
 	finally {
 		qexec.close();
 		}		
-	}	
+	}	*/
 	public static void main(String[] args) throws IOException {	
-		sparqlTest();			
+		//sparqlTest();
+		String literal [] = {"Given"};
+		ExecuteSPARQL(inputFileName,Requetes.queryString_3,literal);
 	}
 }
