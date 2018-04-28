@@ -86,16 +86,6 @@ public class RDFPerson {
 				.addLiteral(FOAF.age, 50);
 	}
 	
-	//permet de retourner un modèle
-	//utiliser dans les requêtes 
-	public static Model giveMeModel() {
-		
-		RDFPerson person = new RDFPerson();
-		
-		person.createModel();
-		return person.model;
-	}
-
 	public static void main(String[] args) {
 		RDFPerson person = new RDFPerson();
 		person.createModel();

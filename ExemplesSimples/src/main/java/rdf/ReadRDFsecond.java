@@ -22,12 +22,7 @@ public class ReadRDFsecond extends Object {
         model.read(in, "");
                     
         // write it to standard out
-        model.write(System.out);           
+        //model.write(System.out);           
         return model;
     }    	
-  
-    
-    public static void main (String args[]) {
-    	Model model = ReadModelFromFile(inputFileName);
-    }
 }

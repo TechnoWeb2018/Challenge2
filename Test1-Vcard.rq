@@ -1,0 +1,5 @@
+PREFIX vCard: <http://www.w3.org/2001/vcard-rdf/3.0#> 
+SELECT ?Given
+WHERE {
+		?animal <http://www.w3.org/2001/vcard-rdf/3.0#FN> ?Given } 
+ORDER BY ?Given 	

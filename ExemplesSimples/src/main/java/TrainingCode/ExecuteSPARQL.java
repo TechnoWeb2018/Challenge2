@@ -20,7 +20,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import rdf.ReadRDFsecond;
 
 public class ExecuteSPARQL {
-
+/*
 	private static String fileToString(String chemin) throws IOException {
 		String reponse ="";
 		String Chemin = "../"+chemin;
@@ -28,20 +28,20 @@ public class ExecuteSPARQL {
 		List<String> lignes = Files.readAllLines(path, Charset.defaultCharset());		
 		for(String ligne : lignes) reponse = reponse + ligne + "\n";		
 		return reponse;
-	}
-	static final String inputFileName = "../foaf.rdf ";
+	}*/
+	
+	static final String inputFileName = "../vc-db-1.rdf ";
 
-	static void sparqlTest() {
+	static void sparqlTest() throws IOException {
 
         Model model1 = ReadRDFsecond.ReadModelFromFile(inputFileName);
         
-		String queryString = 
-				" PREFIX mov:<http://rdf.freebase.com/ns/> " +
-				" SELECT ?who ?film " +
+		String queryString =			
+				" PREFIX vCard: <http://www.w3.org/2001/vcard-rdf/3.0#> "+
+				" SELECT ?Given " +
 				"WHERE {"  +
-					" ?film mov:film.film.directed_by ?who . "+
-					" ?person1 rdfs:subClassOf ?Person . "+
-					" ?film mov:film.film.starring ?who . } ";	
+					" ?person vCard:Given ?Given } "+
+				" ORDER BY ?Given ";	
 		
 	Query query = QueryFactory.create(queryString);
 	QueryExecution qexec = QueryExecutionFactory.create(query,model1);
@@ -49,10 +49,8 @@ public class ExecuteSPARQL {
 		ResultSet results = qexec.execSelect();
 		while (results.hasNext()) {
 			QuerySolution person = results.nextSolution();
-			Literal name = person.getLiteral("name");
-			Literal age = person.getLiteral("age");
-			
-			System.out.println(name + " "+ age);
+			Literal name = person.getLiteral("Given");			
+			System.out.println(name );
 			}			
 		}
 	finally {
