@@ -1,4 +1,4 @@
-package TrainingCode;
+package rdf;
 
 import java.io.InputStream;
 

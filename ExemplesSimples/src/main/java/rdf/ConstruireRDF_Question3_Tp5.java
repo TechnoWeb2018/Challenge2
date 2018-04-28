@@ -1,7 +1,7 @@
 /**
  * 
  */
-package TrainingCode;
+package rdf;
 
 import java.io.File;
 import java.io.FileNotFoundException;

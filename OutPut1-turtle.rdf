@@ -1,21 +1,16 @@
 @prefix per:   <http://www.example.org#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-[ a          per:Undergraduate ;
-  foaf:age   "36"^^<http://www.w3.org/2001/XMLSchema#long> ;
-  foaf:name  "Alice"
-] .
-
 per:Student  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 per:Person .
-
-per:Undergraduate  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                per:Student .
 
 [ a          per:Professor ;
   foaf:age   "50"^^<http://www.w3.org/2001/XMLSchema#long> ;
   foaf:name  "Bob"
 ] .
+
+per:Undergraduate  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                per:Student .
 
 per:Assistant  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 per:Staff .
@@ -28,3 +23,8 @@ per:Graduate  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
 
 per:Professor  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 per:Staff .
+
+[ a          per:Undergraduate ;
+  foaf:age   "36"^^<http://www.w3.org/2001/XMLSchema#long> ;
+  foaf:name  "Alice"
+] .

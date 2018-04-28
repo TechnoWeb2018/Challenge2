@@ -1,4 +1,4 @@
-package TrainingCode;
+package rdf;
 
 import java.io.FileNotFoundException;
 import org.apache.jena.rdf.model.Model;
