@@ -1,0 +1,4 @@
+PREFIX mov:<http://rdf.freebase.com/ns/>SELECT distinct ?film WHERE {
+{?film mov:film.film.directed_by mov:en.ron_shelton . OPTIONAL {?film mov:film.film.initial_release_date ?reldate.} FILTER(!bound(?reldate))}
+{ ?film mov:film.film.starring ?star . ?star mov:type.object.name ?who.  FILTER regex(?who, "russel", "i" )}
+}

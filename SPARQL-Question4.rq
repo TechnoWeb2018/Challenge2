@@ -1,0 +1,15 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX per: <http://www.example.org#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT (?name AS ?Name) (?age AS ?Age)
+
+WHERE
+{
+	?person rdfs:subClassOf per:Person .
+	?person1 rdfs:subClassOf ?Person .
+	?person2 rdf:type ?person1 ;
+		     foaf:name ?name ;
+			 foaf:age ?age .
+	}

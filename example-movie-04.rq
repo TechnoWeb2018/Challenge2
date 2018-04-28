@@ -1,0 +1,1 @@
+PREFIX mov:<http://rdf.freebase.com/ns/>SELECT distinct ?who ?filmWHERE { ?film mov:film.film.starring ?star . ?star mov:type.object.name ?who.  FILTER regex(?who, "russel", "i")}
