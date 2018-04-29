@@ -53,5 +53,6 @@ public class Requetes {
 									" ?person vCard:Given ?Given . " +
 									" ?person vCard:Family ?Family . "+
 									" ?person info:age ?age  } "+
-								" ORDER BY ?Given ";	
+								" ORDER BY ?Given ";
+	
 }

@@ -8,6 +8,7 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 
@@ -24,7 +25,7 @@ public class ExecuteSPARQL {
 	 * Si vous changer les requetes, il faut adapter le code pour l'affichage
 	 * 
 	 * */
-	static final String inputFileName = "../vc-db-2.rdf ";
+	static final String inputFileName = "../vc-db-1.rdf ";
 
 	static void ExecuteSPARQL(String inputRDFName, String requete, String literal[]) {
 		
@@ -32,7 +33,9 @@ public class ExecuteSPARQL {
         Query query = QueryFactory.create(requete);
 	
         QueryExecution qexec = QueryExecutionFactory.create(query,model1);
-        try {
+        
+        //select
+         try {
         	ResultSet results = qexec.execSelect();
         		while (results.hasNext()) {
         			QuerySolution person = results.nextSolution();
@@ -42,8 +45,18 @@ public class ExecuteSPARQL {
 		}
         finally {
         	qexec.close();
-		}			
+		}
+		        
+        //Construct, Describe
+       /*
+        Model resultModel = qexec.execConstruct(); //construct
+        Model resultModel = qexec.execDescribe(); //describe
+        boolean result = qexec.execAsk() ; //ask
+        resultModel.write(System.out);
+        qexec.close();         
+        */
 	}
+	
 	/*
 	static void sparqlTest() throws IOException {
 
@@ -68,7 +81,7 @@ public class ExecuteSPARQL {
 	}	*/
 	public static void main(String[] args) throws IOException {	
 		//sparqlTest();
-		String literal [] = {"FN", "age"};
-		ExecuteSPARQL(inputFileName,Requetes.queryString_2,literal);
+		String literal [] = {"Given", "Family"};
+		ExecuteSPARQL(inputFileName,Requetes.queryString_1,literal);
 	}
 }
