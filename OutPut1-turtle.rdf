@@ -4,9 +4,9 @@
 per:Student  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 per:Person .
 
-[ a          per:Professor ;
-  foaf:age   "50"^^<http://www.w3.org/2001/XMLSchema#long> ;
-  foaf:name  "Bob"
+[ a          per:Undergraduate ;
+  foaf:age   "36"^^<http://www.w3.org/2001/XMLSchema#long> ;
+  foaf:name  "Alice"
 ] .
 
 per:Undergraduate  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
@@ -24,7 +24,7 @@ per:Graduate  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
 per:Professor  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 per:Staff .
 
-[ a          per:Undergraduate ;
-  foaf:age   "36"^^<http://www.w3.org/2001/XMLSchema#long> ;
-  foaf:name  "Alice"
+[ a          per:Professor ;
+  foaf:age   "50"^^<http://www.w3.org/2001/XMLSchema#long> ;
+  foaf:name  "Bob"
 ] .
